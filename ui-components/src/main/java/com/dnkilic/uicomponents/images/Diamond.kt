@@ -10,7 +10,7 @@ import androidx.compose.ui.graphics.vector.ImageVector.Builder
 import androidx.compose.ui.graphics.vector.path
 import androidx.compose.ui.unit.dp
 
-public val Images.DiamondSmall: ImageVector
+public val Images.Diamond: ImageVector
     get() {
         if (_diamondSmall != null) {
             return _diamondSmall!!

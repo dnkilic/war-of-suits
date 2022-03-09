@@ -10,7 +10,7 @@ import androidx.compose.ui.graphics.vector.ImageVector.Builder
 import androidx.compose.ui.graphics.vector.path
 import androidx.compose.ui.unit.dp
 
-public val Images.ClubSmall: ImageVector
+public val Images.Club: ImageVector
     get() {
         if (_clubSmall != null) {
             return _clubSmall!!

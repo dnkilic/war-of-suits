@@ -13,6 +13,7 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.rotate
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.graphics.vector.ImageVector
 import androidx.compose.ui.text.font.FontFamily
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.tooling.preview.Preview
@@ -28,9 +29,9 @@ fun PlayCard(
 
     Card(
         modifier = modifier
-            .height(336.dp)
-            .width(220.dp),
-        shape = RoundedCornerShape(20.dp),
+            .height(224.dp)
+            .width(147.dp),
+        shape = RoundedCornerShape(10.dp),
         backgroundColor = Color.White,
     ) {
         when (state) {
@@ -52,13 +53,6 @@ private fun PlayCardFront(
     cardValue: CardValue,
     cardType: CardType,
 ) {
-    val icon = when (cardType) {
-        CardType.CLUB -> Images.ClubBig
-        CardType.DIAMOND -> Images.DiamondBig
-        CardType.HEARTH -> Images.HearthBig
-        CardType.SPADE -> Images.SpadeBig
-    }
-
     Box(
         modifier = Modifier.clickable { onClick(1) }
     ) {
@@ -68,8 +62,8 @@ private fun PlayCardFront(
             cardValue = cardValue
         )
         Image(
-            modifier = Modifier.align(Alignment.Center),
-            imageVector = icon,
+            modifier = Modifier.size(70.dp).align(Alignment.Center),
+            imageVector = cardType.icon(),
             contentDescription = ""
         )
         PlayCardValue(
@@ -88,13 +82,6 @@ private fun PlayCardValue(
     cardValue: CardValue,
     cardType: CardType,
 ) {
-    val icon = when (cardType) {
-        CardType.CLUB -> Images.ClubSmall
-        CardType.DIAMOND -> Images.DiamondSmall
-        CardType.HEARTH -> Images.HeartSmall
-        CardType.SPADE -> Images.SpadeSmall
-    }
-
     val textColor = when (cardType) {
         CardType.CLUB, CardType.SPADE -> Color.Black
         CardType.HEARTH, CardType.DIAMOND -> Color(0xFFF24E1E)
@@ -110,17 +97,22 @@ private fun PlayCardValue(
 
     Column(
         modifier = modifier
-            .padding(horizontal = 16.dp, vertical = 8.dp)
+            .padding(horizontal = 12.dp, vertical = 6.dp)
             .wrapContentHeight(),
+        horizontalAlignment = Alignment.CenterHorizontally
     ) {
         Text(
             text = value,
             color = textColor,
-            fontSize = 45.sp,
-            fontWeight = FontWeight.Light,
+            fontSize = 30.sp,
+            fontWeight = FontWeight.Normal,
             fontFamily = FontFamily.SansSerif
         )
-        Image(imageVector = icon, contentDescription = "")
+        Image(
+            modifier = Modifier.size(20.dp),
+            imageVector = cardType.icon(),
+            contentDescription = ""
+        )
     }
 }
 
@@ -147,6 +139,15 @@ private enum class CardState {
 
 private enum class CardType {
     CLUB, DIAMOND, HEARTH, SPADE
+}
+
+private fun CardType.icon(): ImageVector {
+    return when (this) {
+        CardType.CLUB -> Images.Club
+        CardType.DIAMOND -> Images.Diamond
+        CardType.HEARTH -> Images.Heart
+        CardType.SPADE -> Images.Spade
+    }
 }
 
 private enum class CardValue {

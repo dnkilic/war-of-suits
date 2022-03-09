@@ -10,7 +10,7 @@ import androidx.compose.ui.graphics.vector.ImageVector.Builder
 import androidx.compose.ui.graphics.vector.path
 import androidx.compose.ui.unit.dp
 
-public val Images.HeartSmall: ImageVector
+public val Images.Heart: ImageVector
     get() {
         if (_heartSmall != null) {
             return _heartSmall!!

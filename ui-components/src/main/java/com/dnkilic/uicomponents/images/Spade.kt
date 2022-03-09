@@ -10,7 +10,7 @@ import androidx.compose.ui.graphics.vector.ImageVector.Builder
 import androidx.compose.ui.graphics.vector.path
 import androidx.compose.ui.unit.dp
 
-public val Images.SpadeSmall: ImageVector
+public val Images.Spade: ImageVector
     get() {
         if (_spadeSmall != null) {
             return _spadeSmall!!
