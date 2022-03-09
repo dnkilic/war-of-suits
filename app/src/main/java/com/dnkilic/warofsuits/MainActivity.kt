@@ -10,6 +10,7 @@ import androidx.compose.material.MaterialTheme
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
+import com.dnkilic.uicomponents.components.CardDeck
 import com.dnkilic.uicomponents.components.PlayCard
 import com.dnkilic.warofsuits.ui.theme.WarOfSuitsTheme
 
@@ -20,7 +21,7 @@ class MainActivity : ComponentActivity() {
             WarOfSuitsTheme {
                 // A surface container using the 'background' color from the theme
                 Column(Modifier.fillMaxSize().background(color = MaterialTheme.colors.background)) {
-                    PlayCard()
+                    CardDeck()
                 }
             }
         }

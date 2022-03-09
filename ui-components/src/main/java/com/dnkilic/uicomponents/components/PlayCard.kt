@@ -24,8 +24,9 @@ import com.dnkilic.uicomponents.images.*
 @Composable
 fun PlayCard(
     modifier: Modifier = Modifier,
+    isClosed: Boolean = false
 ) {
-    var state by remember { mutableStateOf(CardState.FRONT) }
+    var state by remember { mutableStateOf(if (isClosed) CardState.BACK else CardState.FRONT) }
 
     Card(
         modifier = modifier
@@ -33,6 +34,7 @@ fun PlayCard(
             .width(147.dp),
         shape = RoundedCornerShape(10.dp),
         backgroundColor = Color.White,
+        elevation = 1.dp,
     ) {
         when (state) {
             CardState.FRONT -> PlayCardFront(
