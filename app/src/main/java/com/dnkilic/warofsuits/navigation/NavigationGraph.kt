@@ -7,11 +7,13 @@ import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import com.dnkilic.player.ui.PlayerScreen
 import com.dnkilic.warofsuits.game.ui.GameScreen
+import com.dnkilic.warofsuits.game.ui.GameViewModel
 import com.google.accompanist.systemuicontroller.rememberSystemUiController
 
 @Composable
 fun WarOfSuitsNavigation(
     navController: NavHostController,
+    gameViewModel: GameViewModel
 ) {
     val systemUiController = rememberSystemUiController()
     systemUiController.setSystemBarsColor(
@@ -33,7 +35,10 @@ fun WarOfSuitsNavigation(
             arguments = NavigationDestination.Game.argumentList
         ) { backStackEntry ->
             val userName = NavigationDestination.Game.parseArguments(backStackEntry).userName
-            GameScreen(userName = userName)
+            GameScreen(
+                userName = userName,
+                gameViewModel = gameViewModel
+            )
         }
     }
 }
