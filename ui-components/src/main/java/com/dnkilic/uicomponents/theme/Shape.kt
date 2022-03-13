@@ -1,4 +1,4 @@
-package com.dnkilic.warofsuits.ui.theme
+package com.dnkilic.uicomponents.theme
 
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.Shapes

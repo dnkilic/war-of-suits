@@ -1,4 +1,4 @@
-package com.dnkilic.warofsuits.ui.theme
+package com.dnkilic.uicomponents.theme
 
 import androidx.compose.ui.graphics.Color
 
