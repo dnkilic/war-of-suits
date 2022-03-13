@@ -16,3 +16,4 @@ rootProject.name = "War of Suits"
 include ':app'
 include ':ui-components'
 include ':feature-player'
+include ':feature-game'
