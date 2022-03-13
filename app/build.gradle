@@ -64,4 +64,5 @@ dependencies {
 
     implementation(project(":ui-components"))
     implementation(project(":feature-player"))
+    implementation(project(":feature-game"))
 }
