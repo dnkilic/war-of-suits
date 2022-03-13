@@ -12,7 +12,9 @@ import androidx.navigation.compose.rememberNavController
 import com.dnkilic.uicomponents.components.PlayCard
 import com.dnkilic.warofsuits.navigation.WarOfSuitsNavigation
 import com.dnkilic.uicomponents.theme.WarOfSuitsTheme
+import dagger.hilt.android.AndroidEntryPoint
 
+@AndroidEntryPoint
 class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
