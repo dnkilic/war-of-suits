@@ -66,7 +66,7 @@ dependencies {
     implementation "com.google.dagger:hilt-android:2.39.1"
     kapt "com.google.dagger:hilt-compiler:2.39.1"
 
-    implementation(project(":ui-components"))
+    implementation(project(':base-ui-components'))
     implementation(project(":feature-player"))
     implementation(project(":feature-game"))
 }
