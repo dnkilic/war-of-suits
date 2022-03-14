@@ -1,4 +1,4 @@
-package com.dnkilic.player.ui
+package com.dnkilic.warofsuits.player.ui
 
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.text.KeyboardOptions
@@ -16,7 +16,7 @@ import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.input.ImeAction
 import androidx.compose.ui.text.input.KeyboardType
 import androidx.compose.ui.text.input.TextFieldValue
-import com.dnkilic.player.R
+import com.dnkilic.warofsuits.R
 import com.dnkilic.uicomponents.components.PrimaryButton
 import com.dnkilic.uicomponents.components.TextField
 import com.dnkilic.uicomponents.theme.AppTheme

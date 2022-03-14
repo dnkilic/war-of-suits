@@ -1,4 +1,4 @@
-package com.dnkilic.player
+package com.dnkilic.warofsuits.player
 
 import org.junit.Test
 

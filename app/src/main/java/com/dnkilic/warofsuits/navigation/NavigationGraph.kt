@@ -6,7 +6,7 @@ import androidx.navigation.NavHostController
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.plusAssign
-import com.dnkilic.player.ui.PlayerScreen
+import com.dnkilic.warofsuits.player.ui.PlayerScreen
 import com.dnkilic.warofsuits.game.ui.GameScreen
 import com.dnkilic.warofsuits.game.ui.GameViewModel
 import com.dnkilic.warofsuits.result.model.GameResultUiState
