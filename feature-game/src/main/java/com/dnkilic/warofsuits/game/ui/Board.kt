@@ -42,7 +42,7 @@ fun Board(
     val distanceToCenter = heightOfCard / 2
     val screenHeight = (configuration.screenHeightDp / 2) - distanceToCenter
 
-    if (uiState.cards.isEmpty()) {
+    if (uiState.gameState == GameState.OVER) {
         onEndGame(uiState.playerPoints, uiState.opponentPoints)
     }
 
@@ -89,15 +89,15 @@ fun Board(
                 when (uiState.gameState) {
                     GameState.INITIAL -> ActionText(
                         text = stringResource(id = R.string.click_to_start),
-                        onClick = {
-                            if (!uiState.playing) onStartGame()
-                        },
+                        onClick = { onStartGame() },
                     )
                     GameState.SHUFFLED, GameState.IDLE -> ActionText(
                         text = stringResource(id = R.string.click_to_play),
-                        onClick = {
-                            if (!uiState.playing) onPlayCard()
-                        }
+                        onClick = { onPlayCard() },
+                    )
+                    GameState.OVER -> ActionText(
+                        text = stringResource(id = R.string.click_to_play_again),
+                        onClick = { onResetGame() },
                     )
                 }
             }

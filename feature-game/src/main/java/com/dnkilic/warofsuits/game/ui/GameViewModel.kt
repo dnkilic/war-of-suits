@@ -40,6 +40,10 @@ class GameViewModel @Inject constructor(
     }
 
     fun playNextCard() {
+        if (viewModelState.value.playing) {
+            return
+        }
+
         viewModelScope.launch(Dispatchers.IO) {
             val playerCard = viewModelState.value.cards.last()
             val opponentCard = viewModelState.value.cards[viewModelState.value.cards.size - 2]
@@ -61,7 +65,7 @@ class GameViewModel @Inject constructor(
                 val winner = gameRepository.getRoundWinner(playerCard, opponentCard, it.suitPriority)
                 val cards = it.cards.dropLast(2)
                 it.copy(
-                    gameState = GameState.IDLE,
+                    gameState = if (cards.isEmpty()) { GameState.OVER } else { GameState.IDLE },
                     cards = cards,
                     playerPoints = if (winner == Gamer.Player) it.playerPoints + 1 else it.playerPoints,
                     opponentPoints = if (winner == Gamer.Opponent) it.opponentPoints + 1 else it.opponentPoints,

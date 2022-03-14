@@ -15,5 +15,5 @@ data class GameUiState(
 )
 
 enum class GameState {
-    INITIAL, SHUFFLED, IDLE
+    INITIAL, SHUFFLED, IDLE, OVER
 }
