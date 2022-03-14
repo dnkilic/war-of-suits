@@ -9,6 +9,7 @@ import androidx.navigation.plusAssign
 import com.dnkilic.warofsuits.player.ui.PlayerScreen
 import com.dnkilic.warofsuits.game.ui.GameScreen
 import com.dnkilic.warofsuits.game.ui.GameViewModel
+import com.dnkilic.warofsuits.player.ui.PlayerViewModel
 import com.dnkilic.warofsuits.result.model.GameResultUiState
 import com.dnkilic.warofsuits.result.ui.GameResultScreen
 import com.google.accompanist.navigation.material.ExperimentalMaterialNavigationApi
@@ -21,7 +22,8 @@ import com.google.accompanist.systemuicontroller.rememberSystemUiController
 @Composable
 fun WarOfSuitsNavigation(
     navController: NavHostController,
-    gameViewModel: GameViewModel
+    gameViewModel: GameViewModel,
+    playerViewModel: PlayerViewModel,
 ) {
     val bottomSheetNavigator = rememberBottomSheetNavigator()
     navController.navigatorProvider += bottomSheetNavigator
@@ -40,9 +42,19 @@ fun WarOfSuitsNavigation(
             startDestination = NavigationDestination.Player
         ) {
             composable(NavigationDestination.Player) {
-                PlayerScreen { userName ->
-                    navController.navigate(NavigationDestination.Game.getDestination(userName))
-                }
+                PlayerScreen(
+                    playerViewModel = playerViewModel,
+                    onStartNewGame = { playerName ->
+                        playerViewModel.startNewGame(playerName)
+                    },
+                    onNavigateToGame = { playerName ->
+                        navController.popBackStack()
+                        navController.navigate(NavigationDestination.Game.getDestination(playerName))
+                    },
+                    onTextChange = {
+                        playerViewModel.resetError()
+                    }
+                )
             }
             composable(
                 route = NavigationDestination.Game.route,

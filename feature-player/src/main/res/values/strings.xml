@@ -5,4 +5,8 @@
     <string name="enter_username">Enter username</string>
     <string name="description">Professor X and Magneto are tired of playing chess in his eventual visits to prison, so Gambit has created this new card game for Professor X.</string>
     <string name="start_game">Start Game</string>
+    <string name="empty_input">Input field is empty</string>
+    <string name="short_input">Player name is too short</string>
+    <string name="long_input">Player name is too long</string>
+    <string name="something_went_wrong_while_validating_user_name">Something went wrong while validating user name</string>
 </resources>
