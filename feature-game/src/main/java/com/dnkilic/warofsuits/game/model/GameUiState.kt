@@ -1,7 +1,8 @@
 package com.dnkilic.warofsuits.game.model
 
-import com.dnkilic.uicomponents.model.CardDto
-import com.dnkilic.uicomponents.model.CardType
+import com.dnkilic.warofsuits.data.model.CardDto
+import com.dnkilic.warofsuits.data.model.CardType
+
 
 data class GameUiState(
     val playerPoints: Int = 0,

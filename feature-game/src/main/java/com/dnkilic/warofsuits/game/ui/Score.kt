@@ -15,10 +15,10 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.zIndex
-import com.dnkilic.uicomponents.model.CardType
-import com.dnkilic.uicomponents.model.description
-import com.dnkilic.uicomponents.model.icon
+import com.dnkilic.uicomponents.ext.description
+import com.dnkilic.uicomponents.ext.icon
 import com.dnkilic.uicomponents.theme.AppTheme
+import com.dnkilic.warofsuits.data.model.CardType
 
 @Composable
 fun Score(

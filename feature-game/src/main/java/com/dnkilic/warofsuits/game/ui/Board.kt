@@ -22,7 +22,7 @@ import com.dnkilic.uicomponents.components.ActionText
 import com.dnkilic.uicomponents.components.LabelOrientation
 import com.dnkilic.uicomponents.components.PlayCard
 import com.dnkilic.uicomponents.components.PlayerLabel
-import com.dnkilic.uicomponents.model.CardState
+import com.dnkilic.warofsuits.data.model.CardState
 import com.dnkilic.warofsuits.game.R
 import com.dnkilic.warofsuits.game.model.GameState
 import com.dnkilic.warofsuits.game.model.GameUiState

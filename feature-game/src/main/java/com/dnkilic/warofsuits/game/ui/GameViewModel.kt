@@ -2,7 +2,7 @@ package com.dnkilic.warofsuits.game.ui
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import com.dnkilic.uicomponents.model.CardState
+import com.dnkilic.warofsuits.data.model.CardState
 import com.dnkilic.warofsuits.game.model.GameState
 import com.dnkilic.warofsuits.game.model.GameUiState
 import com.dnkilic.warofsuits.game.model.Gamer

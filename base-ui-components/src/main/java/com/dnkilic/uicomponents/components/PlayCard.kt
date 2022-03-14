@@ -19,7 +19,8 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import com.dnkilic.uicomponents.R
-import com.dnkilic.uicomponents.model.*
+import com.dnkilic.uicomponents.ext.*
+import com.dnkilic.warofsuits.data.model.*
 import kotlin.math.abs
 
 @Composable
