@@ -12,9 +12,9 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.zIndex
 import com.dnkilic.uicomponents.model.CardType
+import com.dnkilic.uicomponents.model.description
+import com.dnkilic.uicomponents.model.icon
 import com.dnkilic.uicomponents.theme.AppTheme
-import com.dnkilic.uicomponents.utils.description
-import com.dnkilic.uicomponents.utils.icon
 
 @Composable
 fun Score(

@@ -10,7 +10,6 @@ import androidx.compose.runtime.collectAsState
 import androidx.compose.runtime.getValue
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
-import com.dnkilic.uicomponents.components.CardDeck
 import com.dnkilic.warofsuits.game.model.GameUiState
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow
@@ -18,7 +17,11 @@ import kotlinx.coroutines.flow.StateFlow
 @Composable
 fun GameScreen(
     userName: String,
-    gameViewModel: IGameViewModel
+    gameViewModel: IGameViewModel,
+    onStartGame: () -> Unit = {},
+    onPlayCard: () -> Unit = {},
+    onEndGame: () -> Unit = {},
+    onResetGame: () -> Unit = {},
 ) {
     val uiState by gameViewModel.uiState.collectAsState()
 
@@ -26,7 +29,11 @@ fun GameScreen(
         content = {
             GameScreenContent(
                 userName = userName,
-                uiState = uiState
+                uiState = uiState,
+                onStartGame = onStartGame,
+                onPlayCard = onPlayCard,
+                onEndGame = onEndGame,
+                onResetGame = onResetGame
             )
         }
     )
@@ -35,14 +42,25 @@ fun GameScreen(
 @Composable
 private fun GameScreenContent(
     userName: String,
-    uiState: GameUiState
+    uiState: GameUiState,
+    onStartGame: () -> Unit,
+    onPlayCard: () -> Unit,
+    onEndGame: () -> Unit,
+    onResetGame: () -> Unit,
 ) {
     Column(
         Modifier
             .fillMaxSize()
-            .background(color = MaterialTheme.colors.background))
-    {
-        CardDeck()
+            .background(color = MaterialTheme.colors.background)
+    ) {
+        Board(
+            uiState = uiState,
+            userName = userName,
+            onStartGame = onStartGame,
+            onPlayCard = onPlayCard,
+            onEndGame = onEndGame,
+            onResetGame = onResetGame
+        )
     }
 }
 

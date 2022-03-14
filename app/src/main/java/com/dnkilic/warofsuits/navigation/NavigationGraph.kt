@@ -34,10 +34,23 @@ fun WarOfSuitsNavigation(
             route = NavigationDestination.Game.route,
             arguments = NavigationDestination.Game.argumentList
         ) { backStackEntry ->
+            gameViewModel.resetGame()
             val userName = NavigationDestination.Game.parseArguments(backStackEntry).userName
             GameScreen(
                 userName = userName,
-                gameViewModel = gameViewModel
+                gameViewModel = gameViewModel,
+                onStartGame = {
+                    gameViewModel.startGame()
+                },
+                onPlayCard = {
+                    gameViewModel.playNextCard()
+                },
+                onEndGame = {
+                    // TODO show result bottom sheet
+                },
+                onResetGame = {
+
+                }
             )
         }
     }
