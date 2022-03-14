@@ -58,7 +58,6 @@ private fun GameScreenContent(
             userName = userName,
             onStartGame = onStartGame,
             onPlayCard = onPlayCard,
-            onEndGame = onEndGame,
             onResetGame = onResetGame
         )
     }

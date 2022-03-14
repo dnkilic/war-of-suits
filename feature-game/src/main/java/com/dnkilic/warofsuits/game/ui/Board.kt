@@ -34,7 +34,6 @@ fun Board(
     userName: String,
     onStartGame: () -> Unit = {},
     onPlayCard: () -> Unit = {},
-    onEndGame: () -> Unit = {},
     onResetGame: () -> Unit = {}
 ) {
     val configuration = LocalConfiguration.current
@@ -67,7 +66,8 @@ fun Board(
                     top.linkTo(header.top)
                     bottom.linkTo(footer.bottom)
                     end.linkTo(parent.end)
-                }
+                },
+            onResetGame = onResetGame
         )
 
         Footer(

@@ -45,11 +45,8 @@ fun WarOfSuitsNavigation(
                 onPlayCard = {
                     gameViewModel.playNextCard()
                 },
-                onEndGame = {
-                    // TODO show result bottom sheet
-                },
                 onResetGame = {
-
+                    gameViewModel.resetGame()
                 }
             )
         }

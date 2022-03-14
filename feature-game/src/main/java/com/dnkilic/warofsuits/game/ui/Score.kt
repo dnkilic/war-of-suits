@@ -3,8 +3,12 @@ package com.dnkilic.warofsuits.game.ui
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.lazy.LazyColumn
+import androidx.compose.material.Icon
+import androidx.compose.material.IconButton
 import androidx.compose.material.MaterialTheme
 import androidx.compose.material.Text
+import androidx.compose.material.icons.Icons
+import androidx.compose.material.icons.filled.Refresh
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
@@ -21,6 +25,7 @@ fun Score(
     modifier: Modifier = Modifier,
     playerScore: Int,
     opponentScore: Int,
+    onResetGame: () -> Unit = {},
     priorityList: List<CardType>
 ) {
     Box(
@@ -29,6 +34,16 @@ fun Score(
             .fillMaxHeight()
             .width(40.dp)
     ) {
+        IconButton(
+            modifier = Modifier
+                .align(Alignment.TopCenter),
+            onClick = { onResetGame() }
+        ) {
+            Icon(
+                imageVector = Icons.Filled.Refresh,
+                contentDescription = "Reset",
+            )
+        }
         Column(
             modifier = Modifier.align(Alignment.Center),
             verticalArrangement = Arrangement.Center,
