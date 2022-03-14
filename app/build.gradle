@@ -64,9 +64,11 @@ dependencies {
     androidTestImplementation "androidx.compose.ui:ui-test-junit4:$compose_version"
     debugImplementation "androidx.compose.ui:ui-tooling:$compose_version"
     implementation "com.google.dagger:hilt-android:2.39.1"
-    kapt "com.google.dagger:hilt-compiler:2.39.1"
+    kapt "com.google.dagger:hilt-android-compiler:2.39.1"
+    implementation "com.google.accompanist:accompanist-navigation-material:0.23.1"
 
     implementation(project(':base-ui-components'))
     implementation(project(":feature-player"))
     implementation(project(":feature-game"))
+    implementation(project(":feature-result"))
 }

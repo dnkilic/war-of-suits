@@ -17,7 +17,7 @@ import androidx.compose.ui.text.input.ImeAction
 import androidx.compose.ui.text.input.KeyboardType
 import androidx.compose.ui.text.input.TextFieldValue
 import com.dnkilic.player.R
-import com.dnkilic.uicomponents.components.Button
+import com.dnkilic.uicomponents.components.PrimaryButton
 import com.dnkilic.uicomponents.components.TextField
 import com.dnkilic.uicomponents.theme.AppTheme
 
@@ -70,7 +70,7 @@ private fun PlayerScreenContent(
             )
         )
         Spacer(modifier = Modifier.height(AppTheme.spaces.L))
-        Button(
+        PrimaryButton(
             modifier = Modifier,
             text = stringResource(id = R.string.start_game),
             onClick = {

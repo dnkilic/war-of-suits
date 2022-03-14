@@ -20,7 +20,7 @@ fun GameScreen(
     gameViewModel: IGameViewModel,
     onStartGame: () -> Unit = {},
     onPlayCard: () -> Unit = {},
-    onEndGame: () -> Unit = {},
+    onEndGame: (Int, Int) -> Unit = { _: Int, _: Int -> },
     onResetGame: () -> Unit = {},
 ) {
     val uiState by gameViewModel.uiState.collectAsState()
@@ -45,7 +45,7 @@ private fun GameScreenContent(
     uiState: GameUiState,
     onStartGame: () -> Unit,
     onPlayCard: () -> Unit,
-    onEndGame: () -> Unit,
+    onEndGame: (Int, Int) -> Unit,
     onResetGame: () -> Unit,
 ) {
     Column(
@@ -58,7 +58,8 @@ private fun GameScreenContent(
             userName = userName,
             onStartGame = onStartGame,
             onPlayCard = onPlayCard,
-            onResetGame = onResetGame
+            onResetGame = onResetGame,
+            onEndGame = onEndGame,
         )
     }
 }

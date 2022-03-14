@@ -25,9 +25,7 @@ fun PlayerLabel(
                 horizontalAlignment = Alignment.CenterHorizontally
             ) {
                 Text(
-                    modifier = Modifier
-                        .padding(AppTheme.spaces.M)
-                        .rotate(180f),
+                    modifier = Modifier.padding(AppTheme.spaces.M),
                     text = playerName,
                     style = MaterialTheme.typography.h6
                 )

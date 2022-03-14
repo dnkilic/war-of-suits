@@ -34,12 +34,17 @@ fun Board(
     userName: String,
     onStartGame: () -> Unit = {},
     onPlayCard: () -> Unit = {},
-    onResetGame: () -> Unit = {}
+    onResetGame: () -> Unit = {},
+    onEndGame: (Int, Int) -> Unit = { _: Int, _: Int -> },
 ) {
     val configuration = LocalConfiguration.current
     val heightOfCard = 220
     val distanceToCenter = heightOfCard / 2
     val screenHeight = (configuration.screenHeightDp / 2) - distanceToCenter
+
+    if (uiState.cards.isEmpty()) {
+        onEndGame(uiState.playerPoints, uiState.opponentPoints)
+    }
 
     ConstraintLayout(
         modifier = modifier.fillMaxSize()
