@@ -3,7 +3,6 @@ package com.dnkilic.warofsuits.game.model
 import com.dnkilic.warofsuits.data.model.CardDto
 import com.dnkilic.warofsuits.data.model.CardType
 
-
 data class GameUiState(
     val playerPoints: Int = 0,
     val opponentPoints: Int = 0,

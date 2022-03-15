@@ -8,7 +8,7 @@ import com.dnkilic.warofsuits.game.model.GameUiState
 import com.dnkilic.warofsuits.game.model.Gamer
 import com.dnkilic.warofsuits.game.repository.GameRepository
 import dagger.hilt.android.lifecycle.HiltViewModel
-import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.CoroutineDispatcher
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow
@@ -19,6 +19,7 @@ import javax.inject.Inject
 @HiltViewModel
 class GameViewModel @Inject constructor(
     private val gameRepository: GameRepository,
+    private val ioDispatcher: CoroutineDispatcher,
 ) : IGameViewModel() {
 
     private val viewModelState = MutableStateFlow(initialUiState())
@@ -44,7 +45,7 @@ class GameViewModel @Inject constructor(
             return
         }
 
-        viewModelScope.launch(Dispatchers.IO) {
+        viewModelScope.launch(ioDispatcher) {
             val playerCard = viewModelState.value.cards.last()
             val opponentCard = viewModelState.value.cards[viewModelState.value.cards.size - 2]
             viewModelState.update {

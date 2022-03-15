@@ -1,6 +1,5 @@
 package com.dnkilic.warofsuits.game.repository
 
-import com.dnkilic.uicomponents.ext.*
 import com.dnkilic.warofsuits.data.model.*
 import com.dnkilic.warofsuits.game.model.Gamer
 import javax.inject.Inject
