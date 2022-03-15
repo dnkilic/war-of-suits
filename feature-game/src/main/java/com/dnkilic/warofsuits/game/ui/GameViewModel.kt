@@ -2,6 +2,7 @@ package com.dnkilic.warofsuits.game.ui
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
+import com.dnkilic.warofsuits.data.model.CardDto
 import com.dnkilic.warofsuits.data.model.CardState
 import com.dnkilic.warofsuits.game.model.GameState
 import com.dnkilic.warofsuits.game.model.GameUiState
@@ -48,31 +49,44 @@ class GameViewModel @Inject constructor(
         viewModelScope.launch(ioDispatcher) {
             val playerCard = viewModelState.value.cards.last()
             val opponentCard = viewModelState.value.cards[viewModelState.value.cards.size - 2]
-            viewModelState.update {
-                val updatedPlayerCard = playerCard.copy(cardState = CardState.PLAYED_BY_PLAYER)
-                val updatedOpponentCard = opponentCard.copy(cardState = CardState.PLAYED_BY_OPPONENT)
-                val cards = it.cards.dropLast(2) + updatedOpponentCard + updatedPlayerCard
-                it.copy(cards = cards, playing = true)
-            }
+
+            simulateCardPlay(playerCard, opponentCard)
             delay(2000)
-            viewModelState.update {
-                val updatedPlayerCard = playerCard.copy(cardState = CardState.REVEALED_BY_PLAYER)
-                val updatedOpponentCard = opponentCard.copy(cardState = CardState.REVEALED_BY_OPPONENT)
-                val cards = it.cards.dropLast(2) + updatedOpponentCard + updatedPlayerCard
-                it.copy(cards = cards)
-            }
+            simulateCardReveal(playerCard, opponentCard)
             delay(2000)
-            viewModelState.update {
-                val winner = gameRepository.getRoundWinner(playerCard, opponentCard, it.suitPriority)
-                val cards = it.cards.dropLast(2)
-                it.copy(
-                    gameState = if (cards.isEmpty()) { GameState.OVER } else { GameState.IDLE },
-                    cards = cards,
-                    playerPoints = if (winner == Gamer.Player) it.playerPoints + 1 else it.playerPoints,
-                    opponentPoints = if (winner == Gamer.Opponent) it.opponentPoints + 1 else it.opponentPoints,
-                    playing = false
-                )
-            }
+            simulateRoundResult(playerCard, opponentCard)
+        }
+    }
+
+    private fun simulateCardPlay(playerCard: CardDto, opponentCard: CardDto) {
+        viewModelState.update {
+            val updatedPlayerCard = playerCard.copy(cardState = CardState.PLAYED_BY_PLAYER)
+            val updatedOpponentCard = opponentCard.copy(cardState = CardState.PLAYED_BY_OPPONENT)
+            val cards = it.cards.dropLast(2) + updatedOpponentCard + updatedPlayerCard
+            it.copy(cards = cards, playing = true)
+        }
+    }
+
+    private fun simulateCardReveal(playerCard: CardDto, opponentCard: CardDto) {
+        viewModelState.update {
+            val updatedPlayerCard = playerCard.copy(cardState = CardState.REVEALED_BY_PLAYER)
+            val updatedOpponentCard = opponentCard.copy(cardState = CardState.REVEALED_BY_OPPONENT)
+            val cards = it.cards.dropLast(2) + updatedOpponentCard + updatedPlayerCard
+            it.copy(cards = cards)
+        }
+    }
+
+    private fun simulateRoundResult(playerCard: CardDto, opponentCard: CardDto) {
+        viewModelState.update {
+            val winner = gameRepository.getRoundWinner(playerCard, opponentCard, it.suitPriority)
+            val cards = it.cards.dropLast(2)
+            it.copy(
+                gameState = if (cards.isEmpty()) { GameState.OVER } else { GameState.IDLE },
+                cards = cards,
+                playerPoints = if (winner == Gamer.Player) it.playerPoints + 1 else it.playerPoints,
+                opponentPoints = if (winner == Gamer.Opponent) it.opponentPoints + 1 else it.opponentPoints,
+                playing = false
+            )
         }
     }
 

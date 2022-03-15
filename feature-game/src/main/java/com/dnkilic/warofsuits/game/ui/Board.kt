@@ -18,10 +18,7 @@ import androidx.compose.ui.platform.LocalConfiguration
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.unit.dp
 import androidx.constraintlayout.compose.ConstraintLayout
-import com.dnkilic.uicomponents.components.ActionText
-import com.dnkilic.uicomponents.components.LabelOrientation
-import com.dnkilic.uicomponents.components.PlayCard
-import com.dnkilic.uicomponents.components.PlayerLabel
+import com.dnkilic.uicomponents.components.*
 import com.dnkilic.warofsuits.data.model.CardState
 import com.dnkilic.warofsuits.game.R
 import com.dnkilic.warofsuits.game.model.GameState
@@ -167,7 +164,8 @@ fun Board(
                             y = if (index % 2 == 1) offset.y.dp + index.dp / 2 else -offset.y.dp + index.dp / 2
                         ),
                     card = card,
-                    flipValue = flipValue
+                    flipValue = flipValue,
+                    playCardSize = PlayCardSize.MEDIUM
                 )
             }
         }
