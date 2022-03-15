@@ -14,6 +14,7 @@ import androidx.compose.runtime.saveable.rememberSaveable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.ExperimentalComposeUiApi
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.platform.LocalConfiguration
 import androidx.compose.ui.platform.LocalSoftwareKeyboardController
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
@@ -22,6 +23,7 @@ import androidx.compose.ui.text.input.KeyboardType
 import androidx.compose.ui.text.input.TextFieldValue
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.tooling.preview.Preview
+import androidx.compose.ui.unit.dp
 import com.dnkilic.uicomponents.components.InputField
 import com.dnkilic.uicomponents.components.PrimaryButton
 import com.dnkilic.uicomponents.theme.AppTheme
@@ -59,10 +61,9 @@ private fun PlayerScreenContent(
     onTextChange: () -> Unit = {},
 ) {
     val uiState by playerViewModel.uiState.collectAsState()
-
+    val screenHeight = LocalConfiguration.current.screenHeightDp
     val scrollState = rememberScrollState()
     val keyboardController = LocalSoftwareKeyboardController.current
-
     var userName by rememberSaveable(stateSaver = TextFieldValue.Saver) {
         mutableStateOf(TextFieldValue())
     }
@@ -96,8 +97,9 @@ private fun PlayerScreenContent(
         )
         Spacer(modifier = Modifier.height(AppTheme.spaces.M))
         Image(
+            modifier = Modifier.height((screenHeight / 3).dp),
             painter = painterResource(id = R.drawable.cover),
-            contentDescription = "Cover image"
+            contentDescription = "Cover image",
         )
         Spacer(modifier = Modifier.height(AppTheme.spaces.M))
         InputField(
