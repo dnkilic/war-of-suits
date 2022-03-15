@@ -7,6 +7,7 @@ object Versions {
     const val lifecycle = "2.4.1"
     const val constraintLayoutCompose = "1.0.0"
     const val coroutines = "1.3.9"
+    const val appcompat = "1.4.1"
 }
 
 object AppConfig {
@@ -51,5 +52,8 @@ object Dependencies {
     }
     val accompanistNavigationMaterial by lazy {
         "com.google.accompanist:accompanist-navigation-material:${Versions.accompanist}"
+    }
+    val appcompat by lazy {
+        "androidx.appcompat:appcompat:${Versions.appcompat}"
     }
 }

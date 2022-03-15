@@ -38,6 +38,7 @@ dependencies {
     implementation(project(":base-ui-components"))
     implementation(project(":base-data"))
 
+    implementation(Dependencies.appcompat)
     implementation(Dependencies.composePreviewTooling)
     implementation(Dependencies.composeMaterial)
     implementation(Dependencies.hiltAndroid)

@@ -35,6 +35,7 @@ android {
 dependencies {
     implementation(project(":base-data"))
 
+    implementation(Dependencies.appcompat)
     implementation(Dependencies.composePreviewTooling)
     implementation(Dependencies.composeMaterial)
     debugImplementation(Dependencies.composeUiTooling)
