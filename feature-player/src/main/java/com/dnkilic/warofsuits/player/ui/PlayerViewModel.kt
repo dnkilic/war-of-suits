@@ -9,6 +9,7 @@ import com.dnkilic.warofsuits.player.model.UserNameInput
 import com.dnkilic.warofsuits.player.model.ValidateException
 import com.dnkilic.warofsuits.player.repository.PlayerRepository
 import dagger.hilt.android.lifecycle.HiltViewModel
+import kotlinx.coroutines.CoroutineDispatcher
 import kotlinx.coroutines.flow.*
 import kotlinx.coroutines.launch
 import javax.inject.Inject
@@ -16,6 +17,7 @@ import javax.inject.Inject
 @HiltViewModel
 class PlayerViewModel @Inject constructor(
     private val playerRepository: PlayerRepository,
+    private val ioDispatcher: CoroutineDispatcher
 ) : IPlayerViewModel() {
 
     private val viewModelState = MutableStateFlow(PlayerUiState())
@@ -26,7 +28,7 @@ class PlayerViewModel @Inject constructor(
             return
         }
 
-        viewModelScope.launch {
+        viewModelScope.launch(ioDispatcher) {
             playerRepository.validate(UserNameInput(playerName))
                 .onStart {
                     viewModelState.update { PlayerUiState(loading = true) }
@@ -36,10 +38,8 @@ class PlayerViewModel @Inject constructor(
         }
     }
 
-    fun resetError() {
-        viewModelState.update {
-            it.copy(errorResId = null)
-        }
+    fun resetUiState() {
+        viewModelState.update { PlayerUiState() }
     }
 
     private fun handleValidationError(throwable: Throwable) {

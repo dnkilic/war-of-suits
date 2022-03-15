@@ -48,11 +48,12 @@ fun WarOfSuitsNavigation(
                         playerViewModel.startNewGame(playerName)
                     },
                     onNavigateToGame = { playerName ->
+                        playerViewModel.resetUiState()
                         navController.popBackStack()
                         navController.navigate(NavigationDestination.Game.getDestination(playerName))
                     },
                     onTextChange = {
-                        playerViewModel.resetError()
+                        playerViewModel.resetUiState()
                     }
                 )
             }
