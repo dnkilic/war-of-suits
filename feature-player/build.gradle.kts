@@ -5,6 +5,10 @@ plugins {
     id("dagger.hilt.android.plugin")
 }
 
+tasks.withType<org.jetbrains.kotlin.gradle.tasks.KotlinCompile>().configureEach {
+    kotlinOptions.freeCompilerArgs += "-Xopt-in=androidx.compose.ui.ExperimentalComposeUiApi"
+}
+
 android {
     compileSdk = AppConfig.compileSdk
 
