@@ -2,8 +2,10 @@ package com.dnkilic.warofsuits.player.ui
 
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.layout.*
+import androidx.compose.foundation.rememberScrollState
 import androidx.compose.foundation.text.KeyboardActions
 import androidx.compose.foundation.text.KeyboardOptions
+import androidx.compose.foundation.verticalScroll
 import androidx.compose.material.MaterialTheme
 import androidx.compose.material.Scaffold
 import androidx.compose.material.Text
@@ -31,7 +33,7 @@ import kotlinx.coroutines.flow.collectLatest
 
 @Composable
 fun PlayerScreen(
-    playerViewModel : IPlayerViewModel,
+    playerViewModel: IPlayerViewModel,
     onStartNewGame: (String) -> Unit = {},
     onNavigateToGame: (String) -> Unit = {},
     onTextChange: () -> Unit = {},
@@ -51,13 +53,14 @@ fun PlayerScreen(
 @OptIn(ExperimentalComposeUiApi::class)
 @Composable
 private fun PlayerScreenContent(
-    playerViewModel : IPlayerViewModel,
+    playerViewModel: IPlayerViewModel,
     onStartNewGame: (String) -> Unit = {},
     onNavigateToGame: (String) -> Unit = {},
     onTextChange: () -> Unit = {},
 ) {
     val uiState by playerViewModel.uiState.collectAsState()
 
+    val scrollState = rememberScrollState()
     val keyboardController = LocalSoftwareKeyboardController.current
 
     var userName by rememberSaveable(stateSaver = TextFieldValue.Saver) {
@@ -75,7 +78,8 @@ private fun PlayerScreenContent(
     Column(
         modifier = Modifier
             .fillMaxSize()
-            .padding(horizontal = AppTheme.spaces.M),
+            .padding(horizontal = AppTheme.spaces.M)
+            .verticalScroll(scrollState),
         horizontalAlignment = Alignment.CenterHorizontally,
     ) {
         Spacer(modifier = Modifier.height(AppTheme.spaces.L))
