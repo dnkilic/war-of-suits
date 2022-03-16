@@ -3,6 +3,6 @@
     <string name="player_won">%1$s Won!</string>
     <string name="player_lose">%1$s Lose!</string>
     <string name="draw">Draw!</string>
-    <string name="match_score">"Score : %1$s - %1$s"</string>
+    <string name="match_score">"Score : %1$s - %2$s"</string>
     <string name="play_again">Play again</string>
 </resources>
