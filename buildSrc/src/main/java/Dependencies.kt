@@ -7,7 +7,10 @@ object Versions {
     const val lifecycle = "2.4.1"
     const val constraintLayoutCompose = "1.0.0"
     const val coroutines = "1.3.9"
+    const val coroutinesTest = "1.5.2"
     const val appcompat = "1.4.1"
+    const val mockk = "1.10.6"
+    const val coreTesting = "2.1.0"
 }
 
 object AppConfig {
@@ -55,5 +58,14 @@ object Dependencies {
     }
     val appcompat by lazy {
         "androidx.appcompat:appcompat:${Versions.appcompat}"
+    }
+    val mockk by lazy {
+        "io.mockk:mockk:${Versions.mockk}"
+    }
+    val coroutinesTest by lazy {
+        "org.jetbrains.kotlinx:kotlinx-coroutines-test:${Versions.coroutinesTest}"
+    }
+    val coreTesting by lazy {
+        "androidx.arch.core:core-testing:${Versions.coreTesting}"
     }
 }

@@ -12,6 +12,7 @@ android {
         minSdk = AppConfig.minSdk
         targetSdk = AppConfig.compileSdk
 
+        testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
         consumerProguardFiles("consumer-rules.pro")
     }
 
@@ -50,4 +51,7 @@ dependencies {
     kapt(Dependencies.hiltAndroidCompiler)
 
     testImplementation(Dependencies.jUnit)
+    testImplementation(Dependencies.mockk)
+    testImplementation(Dependencies.coroutinesTest)
+    testImplementation(Dependencies.coreTesting)
 }
