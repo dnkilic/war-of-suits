@@ -19,26 +19,31 @@ class GameRepository @Inject constructor() {
         }.shuffled()
     }
 
+    /**
+     * Priority from first to last item
+     */
     fun getSuitPriority(): List<CardType> {
         return CardType.values().asList().shuffled()
     }
 
     fun getRoundWinner(playerCard: CardDto, opponentCard: CardDto, priority: List<CardType>): Gamer {
-        val (player, opponent) = when (playerCard.cardValue) {
+        return when (playerCard.cardValue) {
             opponentCard.cardValue -> {
                 val firstCardIndex = priority.indexOf(playerCard.cardType)
                 val secondCardIndex = priority.indexOf(opponentCard.cardType)
-                firstCardIndex to secondCardIndex
+                if (firstCardIndex < secondCardIndex) {
+                    Gamer.Player
+                } else {
+                    Gamer.Opponent
+                }
             }
             else -> {
-                playerCard.cardValue.ordinal to opponentCard.cardValue.ordinal
+                if (playerCard.cardValue.ordinal > opponentCard.cardValue.ordinal) {
+                    Gamer.Player
+                } else {
+                    Gamer.Opponent
+                }
             }
-        }
-
-        return if (player > opponent) {
-            Gamer.Player
-        } else {
-            Gamer.Opponent
         }
     }
 }

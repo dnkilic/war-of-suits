@@ -43,7 +43,7 @@ fun fakeCard() = CardDto(
     CardState.INITIAL
 )
 
-fun cardDeckPlayerWins() = listOf(
+fun cardDeckPlayerWins() = mutableListOf(
     CardDto(
         CardType.DIAMOND,
         CardValue.THREE,
@@ -70,16 +70,16 @@ fun cardDeckPlayerWins() = listOf(
     )
 )
 
-fun cardDeckOpponentWins() = listOf(
+fun cardDeckOpponentWins() = mutableListOf(
     CardDto(
-        CardType.DIAMOND,
+        CardType.CLUB,
         CardValue.ACE,
         CardSurface.BACK,
         CardState.INITIAL
     ),
     CardDto(
         CardType.CLUB,
-        CardValue.ACE,
+        CardValue.NINE,
         CardSurface.BACK,
         CardState.INITIAL
     ),
@@ -97,7 +97,7 @@ fun cardDeckOpponentWins() = listOf(
     )
 )
 
-fun cardDeckDraw() = listOf(
+fun cardDeckDraw() = mutableListOf(
     CardDto(
         CardType.DIAMOND,
         CardValue.ACE,
@@ -124,6 +124,13 @@ fun cardDeckDraw() = listOf(
     )
 )
 
+fun cardSuitDraw() = listOf(
+    CardType.HEARTH,
+    CardType.CLUB,
+    CardType.DIAMOND,
+    CardType.SPADE
+)
+
 fun cardSuitPlayerWins() = listOf(
     CardType.SPADE,
     CardType.HEARTH,
@@ -138,9 +145,3 @@ fun cardSuitOpponentWins() = listOf(
     CardType.HEARTH
 )
 
-fun cardSuitDraw() = listOf(
-    CardType.HEARTH,
-    CardType.CLUB,
-    CardType.DIAMOND,
-    CardType.SPADE
-)
