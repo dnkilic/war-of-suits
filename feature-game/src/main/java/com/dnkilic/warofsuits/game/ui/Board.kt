@@ -105,10 +105,10 @@ private fun applyYOffsetBy(cardState: CardState, itemIndex: Int, offsetY: Float)
     return when (cardState) {
         CardState.INITIAL, CardState.DISMISSED -> movementByIndex
         CardState.SHUFFLED ->
-            if (isPlayerCard) offsetY.dp + movementByIndex else -offsetY.dp + movementByIndex
+            if (isPlayerCard) -offsetY.dp + movementByIndex else offsetY.dp + movementByIndex
         CardState.PLAYED_BY_PLAYER, CardState.PLAYED_BY_OPPONENT,
         CardState.REVEALED_BY_PLAYER, CardState.REVEALED_BY_OPPONENT ->
-            if (isPlayerCard) -offsetY.dp + movementByIndex else offsetY.dp + movementByIndex
+            if (isPlayerCard) offsetY.dp + movementByIndex else -offsetY.dp + movementByIndex
     }
 }
 
