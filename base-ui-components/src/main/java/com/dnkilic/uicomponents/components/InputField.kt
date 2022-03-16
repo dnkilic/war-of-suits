@@ -2,9 +2,7 @@ package com.dnkilic.uicomponents.components
 
 import androidx.compose.foundation.text.KeyboardActions
 import androidx.compose.foundation.text.KeyboardOptions
-import androidx.compose.material.Icon
-import androidx.compose.material.OutlinedTextField
-import androidx.compose.material.Text
+import androidx.compose.material.*
 import androidx.compose.runtime.*
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.vector.ImageVector
@@ -44,6 +42,12 @@ fun InputField(
             if (trailingIcon != null) {
                 Icon(imageVector = trailingIcon, contentDescription = trailingIconContentDescription)
             }
-        }
+        },
+        colors = TextFieldDefaults.outlinedTextFieldColors(
+            unfocusedLabelColor = MaterialTheme.colors.primary,
+            unfocusedBorderColor = MaterialTheme.colors.primary,
+            textColor = MaterialTheme.colors.primary,
+            placeholderColor = MaterialTheme.colors.primary,
+        )
     )
 }

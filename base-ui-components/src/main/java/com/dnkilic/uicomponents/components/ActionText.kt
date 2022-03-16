@@ -8,6 +8,7 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.text.AnnotatedString
 import androidx.compose.ui.tooling.preview.Preview
+import androidx.compose.ui.unit.sp
 
 @Composable
 fun ActionText(
@@ -18,7 +19,10 @@ fun ActionText(
     ClickableText(
         modifier = modifier.background(Color.Cyan.copy(alpha = 0.1f)),
         text = AnnotatedString(text),
-        style = MaterialTheme.typography.button,
+        style = MaterialTheme.typography.button.copy(
+            color = Color.White,
+            fontSize = 18.sp
+        ),
         onClick = onClick,
     )
 }

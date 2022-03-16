@@ -63,7 +63,7 @@ fun WarOfSuitsNavigation(
             ) { backStackEntry ->
                 val userName = NavigationDestination.Game.parseArguments(backStackEntry).userName
                 GameScreen(
-                    userName = userName,
+                    playerName = userName,
                     gameViewModel = gameViewModel,
                     onStartGame = { gameViewModel.startGame() },
                     onPlayCard = { gameViewModel.playNextCard() },

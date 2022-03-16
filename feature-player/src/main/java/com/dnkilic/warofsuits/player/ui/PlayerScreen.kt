@@ -1,6 +1,7 @@
 package com.dnkilic.warofsuits.player.ui
 
 import androidx.compose.foundation.Image
+import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.rememberScrollState
 import androidx.compose.foundation.text.KeyboardActions
@@ -13,6 +14,7 @@ import androidx.compose.runtime.*
 import androidx.compose.runtime.saveable.rememberSaveable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.platform.LocalConfiguration
 import androidx.compose.ui.platform.LocalSoftwareKeyboardController
 import androidx.compose.ui.res.painterResource
@@ -77,6 +79,7 @@ private fun PlayerScreenContent(
 
     Column(
         modifier = Modifier
+            .background(Color.White)
             .fillMaxSize()
             .padding(horizontal = AppTheme.spaces.M)
             .verticalScroll(scrollState),
@@ -86,13 +89,13 @@ private fun PlayerScreenContent(
         Text(
             text = stringResource(id = R.string.title),
             textAlign = TextAlign.Center,
-            style = MaterialTheme.typography.h4,
+            style = MaterialTheme.typography.h4.copy(color = Color.Black),
         )
         Spacer(modifier = Modifier.height(AppTheme.spaces.M))
         Text(
             text = stringResource(id = R.string.description),
             textAlign = TextAlign.Center,
-            style = MaterialTheme.typography.body1
+            style = MaterialTheme.typography.body1.copy(color = Color.Black)
         )
         Spacer(modifier = Modifier.height(AppTheme.spaces.M))
         Image(

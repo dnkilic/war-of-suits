@@ -1,10 +1,10 @@
 package com.dnkilic.uicomponents.components
 
-import androidx.compose.foundation.layout.defaultMinSize
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.size
 import androidx.compose.material.Button
 import androidx.compose.material.CircularProgressIndicator
+import androidx.compose.material.MaterialTheme
 import androidx.compose.material.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
@@ -31,7 +31,10 @@ fun PrimaryButton(
                 strokeWidth = 2.dp
             )
         } else {
-            Text(text = text)
+            Text(
+                text = text,
+                style = MaterialTheme.typography.button.copy(color = Color.White)
+            )
         }
     }
 }

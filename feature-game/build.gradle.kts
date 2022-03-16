@@ -44,6 +44,7 @@ dependencies {
     implementation(Dependencies.hiltAndroid)
     implementation(Dependencies.lifecycleViewModel)
     implementation(Dependencies.constraintLayoutCompose)
+    implementation(Dependencies.accompanistSystemUiController)
     debugImplementation(Dependencies.composeUiTooling)
 
     kapt(Dependencies.hiltAndroidCompiler)

@@ -60,15 +60,11 @@ private fun DoubleSide(
     fun isFlipped() = (abs(rotationY) % 360 > 90f)
 
     if (isFlipped()) {
-        val rotationYBack = -rotationY
         Card(
             modifier = modifier
                 .height(playCardSize.height())
                 .width(playCardSize.width())
-                .graphicsLayer(
-                    rotationY = rotationYBack,
-                    cameraDistance = 8f
-                ),
+                .graphicsLayer(rotationY = -rotationY),
             shape = RoundedCornerShape((playCardSize.multiplier * 5).dp),
             backgroundColor = Color.White,
             elevation = 1.dp,
@@ -80,10 +76,7 @@ private fun DoubleSide(
             modifier = modifier
                 .height(playCardSize.height())
                 .width(playCardSize.width())
-                .graphicsLayer(
-                    rotationY = rotationY,
-                    cameraDistance = 8f
-                ),
+                .graphicsLayer(rotationY = rotationY),
             shape = RoundedCornerShape((playCardSize.multiplier * 5).dp),
             backgroundColor = Color.White,
             elevation = (playCardSize.multiplier * 0.5).dp,
@@ -241,11 +234,11 @@ private const val MIN_CENTER_ICON_SIZE = 70
 private const val MIN_CENTER_FONT_SIZE = 30
 private const val MIN_ICON_SIZE = 20
 
-private fun PlayCardSize.height(): Dp {
+fun PlayCardSize.height(): Dp {
     return (MIN_CARD_HEIGHT * this.multiplier).dp
 }
 
-private fun PlayCardSize.width(): Dp {
+fun PlayCardSize.width(): Dp {
     return (MIN_CARD_WIDTH * this.multiplier).dp
 }
 
