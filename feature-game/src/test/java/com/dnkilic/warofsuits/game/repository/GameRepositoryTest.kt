@@ -41,10 +41,6 @@ class GameRepositoryTest {
         Assert.assertTrue(opponentScore == playerScore)
     }
 
-    @Test
-    fun getRoundWinner() {
-    }
-
     private fun gameSimulation(cardDeck: MutableList<CardDto>, suitPriority: List<CardType>): Pair<Int, Int> {
         var playerScore = 0
         var opponentScore = 0
