@@ -9,6 +9,7 @@ import androidx.compose.material.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.platform.testTag
 import androidx.compose.ui.unit.dp
 import com.dnkilic.uicomponents.theme.AppTheme
 
@@ -26,9 +27,11 @@ fun PrimaryButton(
     ) {
         if (isLoading) {
             CircularProgressIndicator(
-                modifier = Modifier.size(AppTheme.spaces.M),
+                modifier = Modifier
+                    .size(AppTheme.spaces.M)
+                    .testTag(PRIMARY_BUTTON_PROGRESS_INDICATOR_TAG),
                 color = Color.White,
-                strokeWidth = 2.dp
+                strokeWidth = 2.dp,
             )
         } else {
             Text(
@@ -38,3 +41,5 @@ fun PrimaryButton(
         }
     }
 }
+
+const val PRIMARY_BUTTON_PROGRESS_INDICATOR_TAG = "PRIMARY_BUTTON_PROGRESS_INDICATOR_TAG"
