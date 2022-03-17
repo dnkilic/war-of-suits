@@ -9,17 +9,14 @@ Compose, Hilt, Kotlin Flow, Mockk, Compose Navigation.
 
 This app is compose only which means there is no Fragment and there is only one activity. I especially enjoyed with Compose Animations during the implementation.
 
-# Player Screen
-Users can start a game from player screen
+# Screens
+Users can start a game after inputting their name
 <p align="middle">
   <img src="/screenshots/player_screen.png" width="150" />   
   <img src="/screenshots/game_screen1.png" width="150" /> 
   <img src="/screenshots/game_screen2.png" width="150" />
   <img src="/screenshots/game_screen3.png" width="150" />
 </p>
-
-# Game Screen
-Users can See/Search tasks from Detail screen
 <p align="middle">
     <img src="/screenshots/game_screen4.png" width="150" />   
     <img src="/screenshots/game_screen5.png" width="150" /> 
