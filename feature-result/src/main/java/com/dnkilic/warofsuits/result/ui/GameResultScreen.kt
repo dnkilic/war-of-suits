@@ -1,12 +1,12 @@
 package com.dnkilic.warofsuits.result.ui
 
 import androidx.compose.foundation.layout.*
-import androidx.compose.material.ExperimentalMaterialApi
 import androidx.compose.material.MaterialTheme
 import androidx.compose.material.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.platform.testTag
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.tooling.preview.Preview
 import com.dnkilic.uicomponents.components.PrimaryButton
@@ -16,7 +16,6 @@ import com.dnkilic.warofsuits.result.model.GameResult
 import com.dnkilic.warofsuits.result.model.GameResultUiState
 import com.dnkilic.warofsuits.result.model.gameResult
 
-@OptIn(ExperimentalMaterialApi::class)
 @Composable
 fun GameResultScreen(
     uiState: GameResultUiState,
@@ -52,6 +51,7 @@ private fun Title(
     text: String
 ) {
     Text(
+        modifier = Modifier.testTag(TITLE_TEXT_TAG),
         text = text,
         style = MaterialTheme.typography.h6
     )
@@ -63,6 +63,7 @@ private fun Score(
     opponentScore: Int
 ) {
     Text(
+        modifier = Modifier.testTag(SCORE_TEXT_TAG),
         text = stringResource(id = R.string.match_score, playerScore, opponentScore),
         style = MaterialTheme.typography.body1
     )
@@ -75,3 +76,6 @@ fun GameResultScreenPreview() {
         GameResultUiState(playerScore = 10, opponentScore = 12, "dnkilic")
     )
 }
+
+const val SCORE_TEXT_TAG = "SCORE_TEXT_TAG"
+const val TITLE_TEXT_TAG = "TITLE_TEXT_TAG"
