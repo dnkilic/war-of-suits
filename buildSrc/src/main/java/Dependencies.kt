@@ -11,6 +11,8 @@ object Versions {
     const val appcompat = "1.4.1"
     const val mockk = "1.10.6"
     const val coreTesting = "2.1.0"
+    const val composeActivity = "1.4.0"
+    const val composeNavigation = "2.4.1"
 }
 
 object AppConfig {
@@ -73,5 +75,11 @@ object Dependencies {
     }
     val composeUiTest by lazy {
         "androidx.compose.ui:ui-test-manifest:${Versions.compose}"
+    }
+    val composeActivity by lazy {
+        "androidx.activity:activity-compose:${Versions.composeActivity}"
+    }
+    val composeNavigation by lazy {
+        "androidx.navigation:navigation-compose:${Versions.composeNavigation}"
     }
 }
