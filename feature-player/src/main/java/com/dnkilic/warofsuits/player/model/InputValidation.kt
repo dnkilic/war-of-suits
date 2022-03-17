@@ -1,7 +1,7 @@
 package com.dnkilic.warofsuits.player.model
 
 import androidx.annotation.StringRes
-import com.dnkilic.warofsuits.R
+import com.dnkilic.warofsuit.player.R
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.flow
 

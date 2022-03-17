@@ -2,7 +2,7 @@ package com.dnkilic.warofsuits.player.ui
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import com.dnkilic.warofsuits.R
+import com.dnkilic.warofsuit.player.R
 import com.dnkilic.warofsuits.player.model.InputValidation
 import com.dnkilic.warofsuits.player.model.PlayerUiState
 import com.dnkilic.warofsuits.player.model.UserNameInput

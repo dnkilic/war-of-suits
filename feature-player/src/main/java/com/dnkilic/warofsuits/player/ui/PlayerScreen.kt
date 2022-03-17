@@ -31,7 +31,7 @@ import com.dnkilic.uicomponents.components.InputField
 import com.dnkilic.uicomponents.components.PrimaryButton
 import com.dnkilic.uicomponents.theme.AppTheme
 import com.dnkilic.uicomponents.theme.WarOfSuitsTheme
-import com.dnkilic.warofsuits.R
+import com.dnkilic.warofsuit.player.R
 import com.dnkilic.warofsuits.player.model.PlayerUiState
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow
