@@ -4,7 +4,6 @@ import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.material.MaterialTheme
 import androidx.compose.material.Scaffold
-import androidx.compose.material.primarySurface
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.collectAsState
 import androidx.compose.runtime.getValue
@@ -136,10 +135,11 @@ private fun GameScreenContent(
 private fun GameScreenPreview() {
     GameScreen(
         playerName = "PlayerX",
-        gameViewModel = PreviewGameViewModel()
+        gameViewModel = FakeGameViewModel()
     )
 }
 
-private class PreviewGameViewModel : IGameViewModel() {
-    override val uiState: StateFlow<GameUiState> = MutableStateFlow(GameUiState())
+class FakeGameViewModel : IGameViewModel() {
+    val viewModelState = MutableStateFlow(GameUiState())
+    override val uiState: StateFlow<GameUiState> = viewModelState
 }

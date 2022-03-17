@@ -6,6 +6,7 @@ import androidx.compose.material.MaterialTheme
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.platform.testTag
 import androidx.compose.ui.text.AnnotatedString
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.sp
@@ -17,7 +18,10 @@ fun ActionText(
     onClick: (Int) -> Unit = {},
 ) {
     ClickableText(
-        modifier = modifier.background(Color.Cyan.copy(alpha = 0.1f)),
+        modifier = modifier
+            .background(Color.Cyan.copy(alpha = 0.1f))
+            .testTag(ACTION_TEXT_TAG)
+        ,
         text = AnnotatedString(text),
         style = MaterialTheme.typography.button.copy(
             color = Color.White,
@@ -32,3 +36,5 @@ fun ActionText(
 fun ActionTextPreview() {
     ActionText()
 }
+
+const val ACTION_TEXT_TAG = "ACTION_TEXT_TAG"

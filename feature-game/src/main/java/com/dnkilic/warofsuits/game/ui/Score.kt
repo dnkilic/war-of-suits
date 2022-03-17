@@ -12,6 +12,7 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.platform.LocalConfiguration
+import androidx.compose.ui.platform.testTag
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.unit.dp
@@ -46,11 +47,13 @@ fun Score(
             horizontalAlignment = Alignment.CenterHorizontally
         ) {
             Text(
+                modifier = Modifier.testTag(OPPONENT_SCORE_TAG),
                 text = opponentScore.toString(),
                 style = MaterialTheme.typography.h4.copy(color = textColor),
             )
             Spacer(modifier = Modifier.height(AppTheme.spaces.M))
             Text(
+                modifier = Modifier.testTag(PLAYER_SCORE_TAG),
                 text = playerScore.toString(),
                 style = MaterialTheme.typography.h4.copy(color = textColor)
             )
@@ -137,3 +140,6 @@ private fun calculateScoreBoardSize(screenHeightInDp: Int): ScoreBoardSize {
         else -> ScoreBoardSize.BIG
     }
 }
+
+const val PLAYER_SCORE_TAG = "PLAYER_SCORE_TAG"
+const val OPPONENT_SCORE_TAG = "OPPONENT_SCORE_TAG"
