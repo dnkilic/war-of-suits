@@ -17,6 +17,7 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.platform.LocalConfiguration
 import androidx.compose.ui.platform.LocalSoftwareKeyboardController
+import androidx.compose.ui.platform.testTag
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.input.ImeAction
@@ -29,6 +30,7 @@ import androidx.compose.ui.unit.dp
 import com.dnkilic.uicomponents.components.InputField
 import com.dnkilic.uicomponents.components.PrimaryButton
 import com.dnkilic.uicomponents.theme.AppTheme
+import com.dnkilic.uicomponents.theme.WarOfSuitsTheme
 import com.dnkilic.warofsuits.R
 import com.dnkilic.warofsuits.player.model.PlayerUiState
 import kotlinx.coroutines.flow.MutableStateFlow
@@ -105,7 +107,9 @@ private fun PlayerScreenContent(
         )
         Spacer(modifier = Modifier.height(AppTheme.spaces.M))
         InputField(
-            modifier = Modifier.fillMaxWidth(),
+            modifier = Modifier
+                .fillMaxWidth()
+                .testTag(PLAYER_NAME_TEXT_FIELD_TAG),
             text = userName.text,
             error = if (uiState.errorResId != null) {
                 stringResource(id = requireNotNull(uiState.errorResId))
@@ -144,9 +148,14 @@ private fun PlayerScreenContent(
 @Composable
 @Preview
 private fun PlayerScreenPreview() {
-    PlayerScreen(playerViewModel = PreviewPlayerViewModel())
+    WarOfSuitsTheme {
+        PlayerScreen(playerViewModel = FakePlayerViewModel())
+    }
 }
 
-private class PreviewPlayerViewModel : IPlayerViewModel() {
-    override val uiState: StateFlow<PlayerUiState> = MutableStateFlow(PlayerUiState())
+class FakePlayerViewModel : IPlayerViewModel() {
+    val viewModelState = MutableStateFlow(PlayerUiState())
+    override val uiState: StateFlow<PlayerUiState> = viewModelState
 }
+
+const val PLAYER_NAME_TEXT_FIELD_TAG = "PLAYER_NAME_TEXT_FIELD_TAG"

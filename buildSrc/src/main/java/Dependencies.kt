@@ -68,4 +68,10 @@ object Dependencies {
     val coreTesting by lazy {
         "androidx.arch.core:core-testing:${Versions.coreTesting}"
     }
+    val composeJUnit by lazy {
+        "androidx.compose.ui:ui-test-junit4:${Versions.compose}"
+    }
+    val composeUiTest by lazy {
+        "androidx.compose.ui:ui-test-manifest:${Versions.compose}"
+    }
 }
