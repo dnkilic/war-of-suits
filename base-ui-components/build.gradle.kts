@@ -39,6 +39,4 @@ dependencies {
     implementation(Dependencies.composePreviewTooling)
     implementation(Dependencies.composeMaterial)
     debugImplementation(Dependencies.composeUiTooling)
-
-    testImplementation(Dependencies.jUnit)
 }

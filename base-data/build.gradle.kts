@@ -32,5 +32,4 @@ dependencies {
     implementation(Dependencies.coroutines)
     implementation(Dependencies.hiltAndroid)
     kapt(Dependencies.hiltAndroidCompiler)
-    testImplementation(Dependencies.jUnit)
 }
