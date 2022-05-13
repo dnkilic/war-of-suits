@@ -1,6 +1,6 @@
 package com.dnkilic.warofsuits.player.repository
 
-import com.dnkilic.warofsuits.R
+import com.dnkilic.warofsuit.player.R
 import com.dnkilic.warofsuits.player.model.UserNameInput
 import com.dnkilic.warofsuits.player.model.ValidateException
 import kotlinx.coroutines.ExperimentalCoroutinesApi
